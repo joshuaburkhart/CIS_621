@@ -32,35 +32,16 @@ def sort(original)
     result = original.clone
     old_midpoint = result.size
     midpoint = old_midpoint  / 2
-    #old_res0 = nil
     while(result[0].length < original.length)
-        #puts "-----------------------------------------"
         (0..midpoint).each { |i|
-            #puts "vvvvvvvvvvvvvvvvvvvvvvvv"
             if(midpoint + i + 1 <= old_midpoint)
                 j = midpoint + i + 1
                 b = result[j]
-                #puts "i: #{i}"
-                #puts "midpoint: #{midpoint}"
-                #puts "j: #{j}"
                 result[i] = merge(result[i],b)
-                #puts "result: #{result.inspect}"
             end
-            #puts "^^^^^^^^^^^^^^^^^^^^^^^"
         }
-        #if(old_res0 == result)
-        #    puts "breaking with result: #{result.inspect}"
-        #    puts "answer must be: #{merge(result[0],result[1])}"
-        #    break
-        #end
-        #old_res0 = result.clone
-        #puts "result[0]: #{result[0]}"
-        #puts "result[0].length: #{result[0].length}"
-        #puts "original: #{original}"
-        #puts "original.length: #{original.length}"
         old_midpoint = midpoint
         midpoint = old_midpoint / 2
-        #puts "========================================"
     end
     return result[0]
 end
