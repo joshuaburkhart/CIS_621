@@ -1,5 +1,9 @@
 #!/usr/local/bin/ruby
 
+#Usage: ./iterative_merge_sort.rb <unordered string>
+
+#Example: ./iterative_merge_sort.rb czbyxa
+
 input = ARGV[0]
 
 def merge(a,b)
