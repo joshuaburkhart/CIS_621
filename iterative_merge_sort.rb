@@ -35,17 +35,15 @@ end
 def sort(original)
     result = original.clone
     old_midpoint = result.size
-    midpoint = old_midpoint  / 2
     while(result[0].length < original.length)
+        midpoint = old_midpoint / 2
         (0..midpoint).each { |i|
-            if(midpoint + i + 1 <= old_midpoint)
-                j = midpoint + i + 1
-                b = result[j]
-                result[i] = merge(result[i],b)
+            j = midpoint + i + 1
+            if(j <= old_midpoint)
+                result[i] = merge(result[i],result[j])
             end
         }
         old_midpoint = midpoint
-        midpoint = old_midpoint / 2
     end
     return result[0]
 end
